@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLC Company</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #f4f4f9;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #004080;
+      padding: 1.5rem 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      color: #004080;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004080;
+      color: #fff;
+    }
+
+    .terms-section p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .terms-section h3 {
+      margin-top: 1.5rem;
+      color: #333;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      border-radius: 8px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #004080;
+      color: white;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .modal-content {
+      padding: 1rem;
+    }
+
+    .close {
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .read-more-button {
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007BFF;
+      border-radius: 26px;
+      border: solid 0px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .read-more-button:hover {
+      background-color: white;
+      color: #007BFF;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @media only screen and (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      .section {
+        padding: 1rem;
+      }
+
+      .calendly-inline-widget {
+        width: 50%;
+        height: 600px;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+      }
+
+      .container {
+        margin: 0.5rem;
+      }
+
+      .section {
+        padding: 0.75rem;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="logo/GTV-logo.png" alt="Company Logo" style="height: 80px; display: block; margin: 0 auto;">
+    <h1 style="color: #004080;">GiveThanks Ventures LLC</h1>
+  </header>
+
+
+  <nav>
+    <a href="#terms">Terms & Conditions</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#booking">Book Appointment</a>
+  </nav>
+
+  <div class="container">
+    <section id="terms" class="section terms-section">
+      <h2>Terms & Conditions</h2>
+      <h3>Terms and Conditions</h3>
+      <p>Givethanks Ventures/AKEBOBS VENTURES consortium has been licensed to partner with Nigeria Inter-Bank Settlement
+        System (NIBBS) to enroll eligible Nigerians in the diaspora in the NIBBS database. NIBBS is the body mandated by
+        the Federal Government of Nigeria to establish, own, operate, maintain, and manage the Banking Database in
+        Nigeria. GTV/AKEBOBS VENTURES provides administrative services for processing BVN enrolment applications
+        ("Services").</p>
+      <button id="openTermsModal" class="read-more-button">Read More</button>
+    </section>
+
+    <section id="privacy" class="section">
+      <h2>Privacy Policy</h2>
+      <p>Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
+      <p>We collect information when you visit our website, register for services, or contact us...</p>
+      <button id="openPrivacyModal" class="read-more-button">Read More</button>
+    </section>
+
+    <section id="booking" class="section">
+      <h2>Booking an Appointment</h2>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/givethanksventuresllc/30min?"
+        style="min-width:100%;height:600px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 GiveThanks-Ventures LLC. All rights reserved.</p>
+  </footer>
+
+  <div id="termsModal" class="modal">
+    <div class="modal-header">
+      <h2>Terms & Conditions</h2>
+      <span class="close" id="closeTermsModal">&times;</span>
+    </div>
+    <div class="modal-content">
+      <h2>TERMS & CONDITIONS</h2>
+      <h3>Terms and Conditions</h3>
+      <p>Givethanks Ventures/AKEBOBS VENTURES consortium has been licensed to partner with Nigeria Inter-Bank Settlement
+        System (NIBBS) to enroll eligible Nigerians in the diaspora in the NIBBS database. NIBBS is the body mandated by
+        the Federal Government of Nigeria to establish, own, operate, maintain, and manage the Banking Database in
+        Nigeria. GTV/AKEBOBS VENTURES provides administrative services for processing BVN enrolment applications
+        ("Services").</p>
+      <h3>Legal Basis</h3>
+      <p>The following Terms & Conditions constitute the legal basis for the rendering of Services by GTV/AKEBOBS
+        VENTURES. By using our services, you acknowledge having read, understood, and agreed to these Terms & Conditions
+        without limitation or qualification.</p>
+      <h3>Use of Website</h3>
+      <p>By accessing this website, you agree to adhere to its terms and not engage in prohibited activities such as
+        interfering with its functionality or posting harmful or unlawful content.</p>
+      <h3>Scope of Services</h3>
+      <p>GTV/AKEBOBS VENTURES is responsible for receiving applications, capturing biometrics, and issuing Transaction
+        ID slips as evidence of transactions. Applicants are required to provide accurate and complete documentation as
+        per the provided checklist.</p>
+      <h3>Fees</h3>
+      <p>All fees must be paid in full and are non-refundable, even if the application is not processed or the BVN is
+        not issued. Payments can be made via credit or debit cards only.</p>
+      <h3>General Obligations</h3>
+      <p>Applicants are responsible for ensuring the accuracy of the information they provide and must check all details
+        on the BVN slip for correctness.</p>
+      <h3>Communication Policy</h3>
+      <p>GTV/AKEBOBS VENTURES communicates primarily through email and SMS. Applicants must ensure that their contact
+        information is accurate and accessible.</p>
+      <h3>Refund Policy</h3>
+      <p>All fees are non-refundable and will be retained by GTV/AKEBOBS VENTURES upon payment, irrespective of the
+        outcome of the application process.</p>
+      <p>Granting of BVN is a sovereign right of the NIBBS and GTV/AKEBOBS VENTURES is merely responsible for biometric
+        data capture and enrolment of applicants. GTV/AKEBOBS VENTURES has NO DECISION making rights, update on BVN
+        status, or control in grant/denial/delay of getting BVN. Hence, NO Refunds will be granted by GTV/AKEBOBS
+        VENTURES, including the following circumstances:</p>
+      <ul>
+        <li>Rejection of BVN application by the NIBBS.</li>
+        <li>Request for reapplication of BVN by the NIBBS.</li>
+        <li>Delay in processing BVN application by the NIBBS.</li>
+        <li>Loss to Employer/Self due to delay in receipt of BVN.</li>
+        <li>Loss due to Deportation and repatriation for any reason in case BVN issuance gets delayed/rejected by the
+          NIBBS.</li>
+        <li>Change in BVN issuance fee by the NIBBS.</li>
+        <li>Liberalization of Visa policies like No eVisa Required.</li>
+        <li>Loss to Self/Family/Companion, in case BVN issuance gets delayed/rejected by the NIBBS.</li>
+        <li>Opportunity loss for time spent on BVN application.</li>
+      </ul>
+
+      <h3>Revocation / Cancellation Policy</h3>
+      <p>The Applicant may revoke/cancel the enrolment application at any time before the application is submitted by
+        GTV/AKEBOBS VENTURES to NIBBS. However, once an application is accepted and processed by GTV/AKEBOBS VENTURES at
+        the Enrolment center, only the shipping fee for return of BVN Slip (if opted and where applicable) will be
+        refunded to the Applicant. GTV/AKEBOBS VENTURES will retain its service fees and Value Added Services (if
+        applicable).</p>
+      <p>Once the Applicant has submitted the application to GTV/AKEBOBS VENTURES, the Applicant will be taken to have
+        agreed that GTV/AKEBOBS VENTURES may immediately commence processing the application and transfer of applicant’s
+        biometric data to NIBBS and providing any services, and as a result, the Applicant shall not have any right to
+        revoke/cancel.</p>
+
+      <h3>Promotional Material</h3>
+      <p>Promotional material may follow the relevant documents such as BVN Slip at the time they are returned to the
+        Applicant. If the Applicant does not wish to receive this material, they must intimate GTV/AKEBOBS VENTURES in
+        advance at the time of submitting the documents. Please note that neither GTV nor NIBBS endorses such
+        promotional material.</p>
+
+      <h3>Exclusion of Liability</h3>
+      <p>GTV/AKEBOBS VENTURES bears no responsibility/liability for costs incurred by the Applicant in anticipation of
+        an application to be finalized by the concerned Mission. These costs may include but are not limited to air
+        tickets, accommodation, and other transport costs.</p>
+      <p>GTV/AKEBOBS VENTURES is not responsible/liability for loss or damage due to events outside its control (Force
+        Majeure events).</p>
+      <p>GTV/AKEBOBS VENTURES is not liable for delays caused by NIBBS or for incorrect details due to incomplete or
+        false information provided by the Applicant.</p>
+
+      <h3>Shipment Delivery</h3>
+      <p>GTV/AKEBOBS VENTURES uses electronic transmittal for BVN slips where the need arises.</p>
+
+      <h3>Scope of Terms & Conditions</h3>
+      <p>These Terms & Conditions must be read in conjunction with the Declaration & Undertaking and Disclaimer.
+        GTV/AKEBOBS VENTURES reserves the right to alter these Terms & Conditions at any time without advance notice and
+        without offering any reason. The interpretation of these Terms & Conditions by GTV/AKEBOBS VENTURES shall be
+        final and binding.</p>
+
+      <h3>Law and Jurisdiction</h3>
+      <p>These Terms and Conditions shall be construed in accordance with the laws of the government of the country of
+        residence of the applicant.</p>
+    </div>
+  </div>
+
+  <div id="privacyModal" class="modal">
+    <div class="modal-header">
+      <h2>Privacy Policy</h2>
+      <span class="close" id="closePrivacyModal">&times;</span>
+    </div>
+    <div class="modal-content">
+      <h2>Privacy Policy</h2>
+      <p>Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
+      <p>We collect information when you visit our website, register for services, or contact us...</p>
+
+      <h3>PRIVACY</h3>
+      <ul>
+        <li>This Privacy and Data Protection Policy is issued by Givethanks Ventures (GTV).</li>
+        <li>All personal information collected by GTV is governed by the laws applicable for the time being in force,
+          the policy guidelines, and directions of the Government of respective Users/Applicants. Applicants/Users will
+          be informed of the purpose for which their personal information is being collected and how to exercise their
+          right of access to that information.</li>
+        <li>This Privacy and Data Protection Policy should be read in conjunction with the Disclaimer and the Terms &
+          Conditions. By accepting the Privacy and Data Protection Policy, you expressly consent to it.</li>
+      </ul>
+
+      <h3>Consent</h3>
+      <ul>
+        <li>By submitting your personal data (excluding credit card information), you actively consent to our treatment
+          of your personal data as outlined above.</li>
+        <li>Web servers automatically collect certain information about visits to a website, including IP addresses.
+          These may be used to identify an individual in certain circumstances. We consider IP addresses personal
+          information, particularly when combined with other data.</li>
+        <li>Providing personal information through this website is voluntary, but it may be required for desired
+          services.</li>
+        <li>We use the information collected to count visitors, improve website functionality, and assist applicants and
+          visitors.</li>
+      </ul>
+
+      <h3>Purpose of Collection</h3>
+      <ul>
+        <li>Provide appointment scheduling and payment processing for BVN enrolment applications.</li>
+        <li>Prevent misuse, abuse, illegal use, or hacking, and address security issues.</li>
+        <li>Customize, measure, and improve services and website layout.</li>
+      </ul>
+
+      <h3>Application Processing</h3>
+      <ul>
+        <li>Information collected may be stored and shared with NIBBS and law enforcement as required by law.</li>
+        <li>Applicants may be required to provide personal information, including name, address, date of birth, and
+          contact details. This list may change as directed by NIBBS.</li>
+      </ul>
+
+      <h3>Disclosure of Personal Information</h3>
+      <ul>
+        <li>Personal information will be used only for stated purposes and disclosed when required by law or necessary
+          for legal rights and criminal investigations.</li>
+      </ul>
+
+      <h3>Processing of Personal Data</h3>
+      <ul>
+        <li>In connection with queries, contact details submitted will be used only for correspondence regarding the
+          query.</li>
+        <li>For BVN applications, personal data is processed as required by NIBBS.</li>
+      </ul>
+
+      <h3>Data Protection</h3>
+      <ul>
+        <li>Data is treated as an asset that must be protected using tools like encryption, passwords, and firewalls.
+          However, GTV cannot guarantee complete security due to potential third-party breaches.</li>
+      </ul>
+
+      <h3>Right to Opt Out</h3>
+      <ul>
+        <li>Applicants may withdraw their consent in writing, after which GTV will no longer provide support services.
+        </li>
+      </ul>
+
+      <h3>Authenticity</h3>
+      <ul>
+        <li>Applicants are responsible for ensuring the accuracy of the information they provide.</li>
+      </ul>
+
+      <h3>Third-Party Websites</h3>
+      <ul>
+        <li>GTV links to social networking and third-party websites, which may have their own privacy policies. Visitors
+          are encouraged to review these policies.</li>
+      </ul>
+
+      <h3>External Links</h3>
+      <ul>
+        <li>Links to external websites, including those of embassies or consulates, are subject to their respective
+          privacy policies.</li>
+      </ul>
+
+      <h3>CCTV</h3>
+      <ul>
+        <li>GTV uses CCTV in all BVN Enrolment Centers as required by NIBBS.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <script>
+    const termsModal = document.getElementById('termsModal');
+    const privacyModal = document.getElementById('privacyModal');
+    const overlay = document.getElementById('overlay');
+
+    const openTermsModal = document.getElementById('openTermsModal');
+    const closeTermsModal = document.getElementById('closeTermsModal');
+
+    const openPrivacyModal = document.getElementById('openPrivacyModal');
+    const closePrivacyModal = document.getElementById('closePrivacyModal');
+
+    openTermsModal.addEventListener('click', () => {
+      termsModal.classList.add('show');
+      overlay.classList.add('show');
+    });
+
+    closeTermsModal.addEventListener('click', () => {
+      termsModal.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+
+    openPrivacyModal.addEventListener('click', () => {
+      privacyModal.classList.add('show');
+      overlay.classList.add('show');
+    });
+
+    closePrivacyModal.addEventListener('click', () => {
+      privacyModal.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      termsModal.classList.remove('show');
+      privacyModal.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+  </script>
+</body>
+
+</html>
